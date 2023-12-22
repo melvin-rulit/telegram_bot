@@ -77,7 +77,6 @@ def category_list(lang):
     category_tovar = InlineKeyboardMarkup(inline_keyboard=[row1])
     return category_tovar
 
-
 def contact(lang):
     button1 = InlineKeyboardButton(_('📱 Открыть меню', lang), callback_data="main_menu_1")
 
@@ -96,7 +95,6 @@ def balance(lang):
     balance_list = InlineKeyboardMarkup(inline_keyboard=[row1, row2])
     return balance_list
 
-
 def top_balance(lang):
     button1 = InlineKeyboardButton(_('📱 Открыть меню', lang), callback_data="main_menu_1")
     button2 = InlineKeyboardButton(_('👀 Ввести ваучер-код', lang), callback_data="voucher")
@@ -105,4 +103,20 @@ def top_balance(lang):
     row2 = [button2]
 
     balance_list = InlineKeyboardMarkup(inline_keyboard=[row1, row2])
+    return balance_list
+
+def purchases(lang):
+    button1 = InlineKeyboardButton(_('📱 Открыть меню', lang), callback_data="main_menu_1")
+
+    row1 = [button1]
+
+    balance_list = InlineKeyboardMarkup(inline_keyboard=[row1])
+    return balance_list
+
+def about_bot(lang):
+    button1 = InlineKeyboardButton(_('Перейти к боту', lang), callback_data="df")
+
+    row1 = [button1]
+
+    balance_list = InlineKeyboardMarkup(inline_keyboard=[row1])
     return balance_list

@@ -69,3 +69,19 @@ def tovar_list(lang):
 
     list_tovar = InlineKeyboardMarkup(inline_keyboard=[row1, row2, row3, row4, row5, row6, row7])
     return list_tovar
+def category_list(lang):
+    button1 = InlineKeyboardButton(_('📱 Открыть меню', lang), callback_data="main_menu_1")
+
+    row1 = [button1]
+
+    category_tovar = InlineKeyboardMarkup(inline_keyboard=[row1])
+    return category_tovar
+
+
+def contact(lang):
+    button1 = InlineKeyboardButton(_('📱 Открыть меню', lang), callback_data="main_menu_1")
+
+    row1 = [button1]
+
+    contact_list = InlineKeyboardMarkup(inline_keyboard=[row1])
+    return contact_list

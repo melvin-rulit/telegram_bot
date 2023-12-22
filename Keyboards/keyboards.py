@@ -85,3 +85,24 @@ def contact(lang):
 
     contact_list = InlineKeyboardMarkup(inline_keyboard=[row1])
     return contact_list
+
+def balance(lang):
+    button1 = InlineKeyboardButton(_('📱 Открыть меню', lang), callback_data="main_menu_1")
+    button2 = InlineKeyboardButton(_('🤑 Пополнить баланс', lang), callback_data="top_balance")
+
+    row1 = [button1]
+    row2 = [button2]
+
+    balance_list = InlineKeyboardMarkup(inline_keyboard=[row1, row2])
+    return balance_list
+
+
+def top_balance(lang):
+    button1 = InlineKeyboardButton(_('📱 Открыть меню', lang), callback_data="main_menu_1")
+    button2 = InlineKeyboardButton(_('👀 Ввести ваучер-код', lang), callback_data="voucher")
+
+    row1 = [button1]
+    row2 = [button2]
+
+    balance_list = InlineKeyboardMarkup(inline_keyboard=[row1, row2])
+    return balance_list

@@ -22,14 +22,24 @@ db = Database()
 lang = 'ru'
 
 
+# -------------------------------------------------------------------------------------------------
 
+@dp.message_handler(CommandStart())
+async def start(message: Message, state: FSMContext):
+    db.connect()
+    if not db.exit_user(message.from_user.id):
+        db.connect()
+        db.insert_user(message.from_user.id)
+        global lang
+    else:
+        db.connect()
+        lang = db.get_lang(message.from_user.id)
 
-
-
-
-
-
-
+    with open('photo_2023-11-03_03-33-28.jpg', 'rb') as photo:
+        await db.insert_state(state, await bot.send_photo(message.chat.id, InputFile(photo),
+                                                          caption=_('Привет! Это бот шопа Fb аккаунтов Traffic Force',
+                                                                    lang),
+                                                          reply_markup=nav.main_menu(lang)), 'message_id_1')
 
 
 if __name__ == '__main__':

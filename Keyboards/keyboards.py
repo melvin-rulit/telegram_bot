@@ -48,8 +48,6 @@ def dop_menu(lang):
 
 
 def tovar_list(lang):
-    # items = ["option 1", "option 2", "option 3"]
-
     button1 = InlineKeyboardButton(_('Товар 1', lang), callback_data="main_menu")
     button2 = InlineKeyboardButton(_('Товар 1', lang), callback_data="button1")
     button3 = InlineKeyboardButton(_('Товар 1', lang), callback_data="lang_ru")

@@ -65,5 +65,32 @@ async def main_menu(callback: types.CallbackQuery, state: FSMContext) -> None:
     await bot.delete_message(callback.from_user.id, await db.get_state(state, 'message_id_1'))
 
 
+# ---------------------------- 🛍 Товары ---------------------------------------------------------------------
+@dp.message_handler(lambda message: message.text == '🛍 Товары' or message.text == '🛍 Products')
+async def handle_shopping(message: types.Message):
+    db.connect()
+    await db.insert_state(state, await message.answer(_('Товары', lang),
+                                                                reply_markup=nav.tovar_list(
+                                                                    db.get_lang(callback.from_user.id))), 'message_id_1')
+    await bot.delete_message(callback.from_user.id, await db.get_state(state, 'message_id_2'))
+
+# ---------------------------- 📦 Categories ---------------------------------------------------------------------
+@dp.message_handler(lambda message: message.text == '📦 Категории' or message.text == '📦 Categories')
+async def handle_shopping(message: types.Message):
+    db.connect()
+    await db.insert_state(state, await message.answer(_('Категории магазина', lang),
+                                                                reply_markup=nav.category_list(
+                                                                    db.get_lang(callback.from_user.id))), 'message_id_1')
+    await bot.delete_message(callback.from_user.id, await db.get_state(state, 'message_id_2'))
+
+# ---------------------------- 📦 Contacts ---------------------------------------------------------------------
+@dp.message_handler(lambda message: message.text == '📱 Контакты' or message.text == '📱 Contacts us')
+async def handle_shopping(message: types.Message):
+    db.connect()
+    await db.insert_state(state, await message.answer(_('Саппорт', lang),
+                                                                reply_markup=nav.contact(
+                                                                    db.get_lang(callback.from_user.id))), 'message_id_1')
+    await bot.delete_message(callback.from_user.id, await db.get_state(state, 'message_id_2'))
+
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)

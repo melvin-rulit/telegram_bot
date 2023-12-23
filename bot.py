@@ -7,6 +7,8 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher import FSMContext
 
 from db import Database
+from translation import _
+from Keyboards import keyboards as nav
 import config as cfg
 
 
